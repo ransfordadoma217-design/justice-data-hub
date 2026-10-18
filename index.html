@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JUSTICE DATA HUB</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#080d18;color:white}
+header{padding:22px 16px;background:#101a30;border-bottom:2px solid #168cff}
+.logo{font-size:23px;font-weight:bold;color:#35a1ff}
+.logo span{color:white}
+.hero{text-align:center;padding:48px 20px;background:linear-gradient(145deg,#101a30,#07101f)}
+.hero h1{font-size:34px;margin:0 0 14px}
+.hero h1 span{color:#2798ff}
+.hero p{color:#bdc9dc;line-height:1.6}
+.btn{display:inline-block;background:#168cff;color:white;text-decoration:none;border:0;border-radius:9px;padding:14px 20px;font-weight:bold;cursor:pointer}
+section{padding:28px 16px;max-width:900px;margin:auto}
+h2{font-size:23px}
+.networks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.network{padding:16px 5px;text-align:center;background:#14213a;border:1px solid #263c5e;border-radius:12px;font-weight:bold}
+.network button{margin-top:10px;padding:9px;border:0;border-radius:7px;background:#168cff;color:white}
+.card{background:#101a30;border:1px solid #243754;border-radius:14px;padding:20px;margin:15px 0}
+label{display:block;margin:15px 0 7px;color:#dce7f8}
+input,select{width:100%;padding:13px;border-radius:8px;border:1px solid #344764;background:#080d18;color:white;font-size:16px}
+.notice{background:#19243a;padding:14px;border-radius:10px;color:#c7d8ef;font-size:13px;line-height:1.6}
+footer{text-align:center;padding:25px;color:#91a3bd;background:#101a30;font-size:13px}
+@media(max-width:400px){.hero h1{font-size:28px}.networks{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">JUSTICE <span>DATA HUB</span></div>
+</header>
+
+<div class="hero">
+<h1>Affordable Data.<br><span>Anytime.</span></h1>
+<p>Your destination for mobile data bundles.<br>Choose your network and get started.</p>
+<a class="btn" href="#shop">EXPLORE BUNDLES ↓</a>
+</div>
+
+<section id="shop">
+<h2>📱 Choose Your Network</h2>
+<div class="networks">
+<div class="network">🟡 MTN<br><button onclick="choose('MTN')">Select</button></div>
+<div class="network">🔴 Telecel<br><button onclick="choose('Telecel')">Select</button></div>
+<div class="network">🟢 AT<br><button onclick="choose('AT')">Select</button></div>
+</div>
+
+<div class="card">
+<h2>🛒 Place Your Order</h2>
+<form id="orderForm">
+<label for="network">Network</label>
+<select id="network" required>
+<option value="">Choose network</option>
+<option>MTN</option>
+<option>Telecel</option>
+<option>AT</option>
+</select>
+
+<label for="bundle">Data bundle</label>
+<select id="bundle" required>
+<option value="">Choose a bundle</option>
+<option>1 GB</option>
+<option>2 GB</option>
+<option>5 GB</option>
+<option>10 GB</option>
+</select>
+
+<label for="phone">Recipient phone number</label>
+<input id="phone" type="tel" placeholder="Enter phone number" required>
+
+<p class="notice">Bundle prices are not yet configured. Contact us to confirm current prices and payment instructions before ordering.</p>
+<button class="btn" type="submit" style="width:100%">Request Order on WhatsApp</button>
+</form>
+</div>
+</section>
+
+<section>
+<h2>💙 Why Justice Data Hub?</h2>
+<div class="card">📦 <b>Data Bundles</b><p>Choose from available mobile networks.</p></div>
+<div class="card">🤝 <b>Customer Support</b><p>Contact us for prices and order assistance.</p></div>
+<div class="notice">Important: Online payments and automatic data delivery are not connected yet. No payment will be taken through this website.</div>
+</section>
+
+<footer>
+JUSTICE DATA HUB © 2026<br>
+Affordable Data. Reliable Service.
+</footer>
+
+<script>
+function choose(network){
+document.getElementById('network').value=network;
+document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+}
+document.getElementById('orderForm').addEventListener('submit',function(e){
+e.preventDefault();
+const network=document.getElementById('network').value;
+const bundle=document.getElementById('bundle').value;
+const phone=document.getElementById('phone').value.trim();
+const message=`Hello Justice Data Hub! I want to order data.\nNetwork: ${network}\nBundle: ${bundle}\nRecipient number: ${phone}\nPlease confirm the price and payment instructions.`;
+const whatsapp='https://wa.me/?text='+encodeURIComponent(message);
+window.open(whatsapp,'_blank');
+});
+</script>
+</body>
+  </html>, 
